@@ -84,14 +84,21 @@ max_Dance = columns[1].number_input(label='Min. Dance Singles', value=df['UK Dan
 
 
 if st.button('Show'):
-    df = df[df['year'] >= year_begin]
-    df = df[df['year'] <= year_end]
+    if year_begin > year_end:
+        st.markdown('Invalid year choices!')
+    elif min_uk_chart > max_uk_chart:
+        st.markdown('Invalid UK chart choices!')
+    elif min_Dance > max_Dance:
+        st.markdown('Invalid UK Dance Single choices')
+    else:
+        df = df[df['year'] >= year_begin]
+        df = df[df['year'] <= year_end]
 
-    df = df[df['UK chart position'] >= min_uk_chart] 
-    df = df[df['UK chart position'] <= max_uk_chart]
+        df = df[df['UK chart position'] >= min_uk_chart] 
+        df = df[df['UK chart position'] <= max_uk_chart]
 
-    df = df[df['UK Dance Singles'] >= min_Dance]
-    df = df[df['UK Dance Singles'] <= max_Dance]
+        df = df[df['UK Dance Singles'] >= min_Dance]
+        df = df[df['UK Dance Singles'] <= max_Dance]
 
-    st.write(df)
+        st.write(df)
 
