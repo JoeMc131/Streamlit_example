@@ -13,7 +13,7 @@ urls = {
 }
 
 def make_dataframe(time_period):
-    # Data is messy so need to gather things in list and then convert to dataframe
+    # Data is non-rectangular so need to gather things in list and then convert to dataframe
     web_data = requests.get(urls[time_period])
     data_json = web_data.json()
 
@@ -91,9 +91,3 @@ if st.button('Show'):
     ax.set_ylabel('Count')
     st.pyplot(fig)
 
-
-
-
-# data = pd.read_json(request.json)
-
-# data.head()
