@@ -31,12 +31,12 @@ for table in table_boxes:
 
         name = song.find('th', scope = 'row').text.strip()
         
-        data = song.find_all('td')
+        data = song.find_all('td', recursive=False)
         songs_dict['song'].append(name)
         songs_dict['artist'].append(data[0].text.strip())
         songs_dict['year'].append(data[1].text.strip())
-        songs_dict['UK chart position'].append(data[2].text.strip().replace("[*]", ""))
-        songs_dict['UK Dance Singles'].append(data[3].text.strip().replace("[*]", ""))
+        songs_dict['UK chart position'].append(data[2].text.strip())
+        songs_dict['UK Dance Singles'].append(data[3].text.strip())
         # songs_dict['song'].append(song[0].text)
         # songs_dict['artist'].append(song[1].text)
         # songs_dict['year'].append(song[2].text)
@@ -47,7 +47,7 @@ for table in table_boxes:
 
 df = pd.DataFrame(songs_dict)
 
-df = df.apply(lambda x: x.str.replace(r'\[.*?\]', '', regex=True) if x.dtype == 'object' else x)
+df = df.apply(lambda x: x.str.replace(r'\[.*\]', '', regex=True) if x.dtype == 'object' else x)
 df['year'] = df['year'].str.replace(r'\/.*', '', regex=True)
 df['year'] = df['year'].astype(int)
 
