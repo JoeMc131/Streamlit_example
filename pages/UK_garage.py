@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import streamlit as st
+import re
 
 
 headers = {
@@ -35,8 +36,8 @@ for table in table_boxes:
         songs_dict['song'].append(name)
         songs_dict['artist'].append(data[0].text.strip())
         songs_dict['year'].append(data[1].text.strip())
-        songs_dict['UK chart position'].append(data[2].text.strip())
-        songs_dict['UK Dance Singles'].append(data[3].text.strip())
+        songs_dict['UK chart position'].append(re.sub(r'\[.*?\]', '', data[2].text.strip()))
+        songs_dict['UK Dance Singles'].append(re.sub(r'\[.*?\]', '', data[3].text.strip()))
         # songs_dict['song'].append(song[0].text)
         # songs_dict['artist'].append(song[1].text)
         # songs_dict['year'].append(song[2].text)
