@@ -78,7 +78,7 @@ st.markdown(
     One of the ways we can approximate the internal density profile of a star is 
     to assume it can take on the form of a Polytrope -- a self-gravitating ball of gas.
     The solutions to the density profile can be found by first finding a solution to the 
-    Lane-Emden equations    
+    Lane-Emden equation    
 """
 )
 

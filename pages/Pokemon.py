@@ -21,7 +21,7 @@ st.title('Pokémon Shiny Odds Calculator')
 
 st.markdown(
     'One of the feature of the pokemon is the existence of shiny Pokemon -- rare ' \
-    'pokemon that exhibit different colours than what they usually are. Shiny pokemon are encountered after ' \
+    'pokemon that exhibit different colours than what they usually are. Shiny pokemon are encountered after an' \
     'amount of wild pokemon encounters (usually with a mean encounter rate of 1 in 8192, depending ' \
     'on the game). What this page allows us to do is calculate the probability that the number of wild encounters ' \
     'to find a shiny pokemon lies in a user-defined range.' \
