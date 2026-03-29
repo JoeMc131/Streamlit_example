@@ -110,7 +110,7 @@ st.markdown(r"""
             be calculated. More information can be found in this [book](https://www.cambridge.org/highereducation/books/an-introduction-to-modern-astrophysics/140DDF8A480C3841DCCD76D66984D858#overview)
 """)
 
-n = st.number_input('Polytropic index, n', value = 1.0, max_value=4.0)
+n = st.number_input('Polytropic index, n', value = 1, max_value=4)
 columns = st.columns(2)
 
 M = columns[0].number_input('Mass [solar masses]', value = 1)*solar_mass
